@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MuiThemeProvider, Reboot, withStyles} from 'material-ui';
+import {Divider, Drawer, List, MuiThemeProvider, Reboot, withStyles} from 'material-ui';
 import PropTypes from 'prop-types';
 
 import './App.css';
@@ -38,6 +38,25 @@ class App extends Component {
           <Reboot/>
           <GlobalAppBar appTitle="EBM Boilerplate" hasTabBarBelow/>
           <TabBar/>
+          <Drawer
+            variant="permanent"
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open
+            classes={{
+              paper: classes.drawerPaper
+            }}>
+            <div>
+              <div className={classes.toolbar}/>
+              <Divider/>
+              <List>
+
+              </List>
+              <Divider/>
+              <List>
+
+              </List>
+            </div>
+          </Drawer>
           {/* You should work mainly in the Content component */}
           <Content className={classes.content}/>
         </MuiThemeProvider>
