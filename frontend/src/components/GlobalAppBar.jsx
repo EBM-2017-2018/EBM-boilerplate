@@ -7,17 +7,19 @@ import {Apps as AppsIcon} from 'material-ui-icons';
 
 import AppsMenu from './AppsMenu';
 
-const styles = {
+const styles = theme => ({
   appBarWithTabBar: {
     boxShadow: 'unset'
   },
-  uglyCssHack: {
-    visibility: 'hidden'
+  appBarWithDrawer: {
+    [theme.breakpoints.up('md')] : {
+      width: `calc(100% - 240px)`
+    }
   },
   flex: {
     flex: 1,
   }
-};
+});
 
 class GlobalAppBar extends PureComponent {
   static propTypes = {
@@ -56,6 +58,7 @@ class GlobalAppBar extends PureComponent {
 
     const appBarClasses = classNames(
       this.props.className,
+      classes.appBarWithDrawer,
       hasTabBarBelow ? classes.appBarWithTabBar : ''
     );
 
